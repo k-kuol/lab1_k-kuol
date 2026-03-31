@@ -10,7 +10,6 @@
 | File | Description |
 |------|-------------|
 | `grade-evaluator.py` | Python application that validates and evaluates student grades |
-| `organizer.sh` | Bash script that archives the current `grades.csv` and resets the workspace |
 | `grades.csv` | CSV file containing course assignment grades |
 | `README.md` | This file |
 
@@ -166,6 +165,6 @@ Archived as     : archive/grades_20251105-170000.csv
 
 ## Author
 
-- **Name:** (your name)
-- **GitHub:** (your GitHub username)
+- **Name:** Kuol Akech Riak Kuol
+- **GitHub:** k-kuol
 - **Course:** Introduction to Python Programming and Databases — BSE Year 1 T2
