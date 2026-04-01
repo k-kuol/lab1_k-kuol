@@ -10,33 +10,8 @@
 | File | Description |
 |------|-------------|
 | `grade-evaluator.py` | Python application that validates and evaluates student grades |
-| `grades.csv` | CSV file containing course assignment grades |
+| `organizer.sh` | Bash script that archives a grades CSV and resets the workspace |
 | `README.md` | This file |
-
----
-
-## CSV Format
-
-`grades.csv` must contain the following four columns:
-
-```csv
-assignment,group,score,weight
-Quiz,Formative,85,20
-Group Exercise,Formative,40,20
-```
-
-| Column | Description |
-|--------|-------------|
-| `assignment` | Name of the assignment |
-| `group` | Either `Formative` or `Summative` |
-| `score` | Grade received (0 – 100) |
-| `weight` | Contribution to final grade (all weights must sum to 100) |
-
-**Weight rules enforced by the program:**
-
-- All weights together must equal **100**
-- Formative assignments must total **60**
-- Summative assignments must total **40**
 
 ---
 
@@ -109,7 +84,6 @@ Assignment                          Group        Score  Weight
 
 **Requirements:**
 - A Unix/Linux/macOS terminal or Git Bash on Windows
-- `grades.csv` must exist and be non-empty in the same directory
 
 ```bash
 # 1. Make the script executable (first time only)
@@ -123,8 +97,8 @@ chmod +x organizer.sh
 
 1. Checks for an `archive/` directory — creates it if missing
 2. Generates a timestamp (format: `YYYYMMDD-HHMMSS`)
-3. Moves `grades.csv` → `archive/grades_<timestamp>.csv`
-4. Creates a new, empty `grades.csv` in the current directory
+3. Moves the CSV file → `archive/grades_<timestamp>.csv`
+4. Creates a new, empty CSV file in the current directory
 5. Appends a log entry to `organizer.log`
 
 **Sample output:**
@@ -155,8 +129,8 @@ Archived as     : archive/grades_20251105-170000.csv
 
 | Scenario | Behaviour |
 |----------|-----------|
-| `grades.csv` not found | Program exits with a clear error message |
-| `grades.csv` is empty | Program exits with a clear error message |
+| CSV file not found | Program exits with a clear error message |
+| CSV file is empty | Program exits with a clear error message |
 | Score outside 0 – 100 | Program lists all invalid rows and exits |
 | Weights don't sum correctly | Program reports which totals are wrong and exits |
 | Non-numeric score/weight in CSV | Program exits with a descriptive error |
